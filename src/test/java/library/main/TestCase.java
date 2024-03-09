@@ -1,3 +1,6 @@
+package library.main;
+
+import com.ecommerce_playwright.config.ConfigLoader;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Playwright;
@@ -15,6 +18,7 @@ public class TestCase {
         Set.page = Set.browser.newPage();
         Set.page.setViewportSize(1700, 900);
         Set.page.setDefaultNavigationTimeout(30000);
+        Set.page.navigate(ConfigLoader.getProperty("baseUrl"));
     }
 
     @AfterClass(description = "Tear down")
